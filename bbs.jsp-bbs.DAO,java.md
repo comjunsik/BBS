@@ -102,6 +102,6 @@ href=write.jsp를 통해 버튼을 클릭했을때 write.jsp로 넘어가도록 
 <input type="submit" class="btn btn-primary pull-right" value="글쓰기">
          </form>
 ```
->**type="submit"** 은 폼의 전송 기능을 담당한다.
-type="reset" 폼 작성 내용을 초기화하는데 사용한다.
+>**type="submit"** 은 폼의 전송 기능을 담당한다.<br>
+type="reset" 폼 작성 내용을 초기화하는데 사용한다.<br>
 type="button" 흔히 자바스크립트를 이용한 기능 구현에 많이 사용한다.
