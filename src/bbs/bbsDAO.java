@@ -54,11 +54,11 @@ public class bbsDAO {
 		String SQL = "INSERT INTO BBS VALUES (?, ?, ?, ?, ?, ?)";
 		try { 
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
-			pstmt.setInt(1, getNext());
-			pstmt.setString(2, bbsTitle);
+			pstmt.setInt(1, getNext());  //게시물 번호, bbsID
+			pstmt.setString(2, bbsTitle);  //게시물 제목
 			pstmt.setString(3, userID);
-			pstmt.setString(4, getDate());
-			pstmt.setString(5, bbsContent);
+			pstmt.setString(4, getDate());  //작성한 시간
+			pstmt.setString(5, bbsContent); //게시물 내용
 			pstmt.setInt(6,1);
 			
 	

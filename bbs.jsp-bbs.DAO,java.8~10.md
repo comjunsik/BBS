@@ -106,3 +106,80 @@ href=write.jsp를 통해 버튼을 클릭했을때 write.jsp로 넘어가도록 
 type="reset" 폼 작성 내용을 초기화하는데 사용한다.<br>
 type="button" 흔히 자바스크립트를 이용한 기능 구현에 많이 사용한다.
 
+---
+# bbsDAO.java
+게시판 데이터 접근 객체
+```java
+public String getDate() {
+		String SQL = "SELECT NOW()";
+		try { 
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				return rs.getString(1);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "";
+	}
+```
+실시간 시간정보를 받아노는 함수
+**String SQL = "SELECT NOW()";** 
+실시간 시간정보를 받아오는 mysql 문장
+**PreparedStatement pstmt = conn.prepareStatement(SQL);**
+ pstmt를 전역 객체로 선언하게 되면 여러 함수 안에서 충돌이 일어날 수 있기 때문에 각각의 함수 안에서 선언 해주도록 한다.
+**rs = pstmt.executeQuery();** mysql문을 실행 했을때 나오는 결과를 가져오도록 한다.
+
+```java
+public int getNext() {
+		String SQL = "SELECT bbsID FROM BBS ORDER BY bbsID DESC";
+		try { 
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				return rs.getInt(1)+1;
+			}
+			return 1;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return -1;
+	}
+```
+**String SQL = "SELECT bbsID FROM BBS ORDER BY bbsID DESC";**
+bbsID를 desc로 내림차순으로 정렬하여 가장 마지막에 생성된 bbsID를 가져오도록 한다.
+```java 
+if (rs.next()) {
+	return rs.getInt(1)+1;
+}
+return 1;
+```
+만약에 다음이 있으면 즉 다른 bbsID가 생성 되었다면 그값에 +1을 하여 그 다음 게시물 ID라고 저장해준다.
+만약 다음이 없다면 처음 이기 때문에 return 1을 해준다.
+
+```java
+public int write(String bbsTitle, String userID, String bbsContent) {
+		String SQL = "INSERT INTO BBS VALUES (?, ?, ?, ?, ?, ?)";
+		try { 
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1, getNext()); //게시물 id 또는 번호
+			pstmt.setString(2, bbsTitle); //글 제목
+			pstmt.setString(3, userID); 
+			pstmt.setString(4, getDate()); //작성 시간
+			pstmt.setString(5, bbsContent); //작성 내용
+			pstmt.setInt(6,1);
+			
+	
+			return pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return -1;
+	}
+```
+String SQL = "INSERT INTO BBS VALUES (?, ?, ?, ?, ?, ?)";
+다섯개의 칼럼에 전부 데이터가 들어가도록 sql문을 작성
+**pstmt.setInt(1, getNext());**
+첫번째 칼럼에는 bbsID가 들어가므로 getNext()함수의 결과값을 인자로 넣어준다.
+
