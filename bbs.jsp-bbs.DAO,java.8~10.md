@@ -168,7 +168,7 @@ public int write(String bbsTitle, String userID, String bbsContent) {
 			pstmt.setString(3, userID); 
 			pstmt.setString(4, getDate()); //작성 시간
 			pstmt.setString(5, bbsContent); //작성 내용
-			pstmt.setInt(6,1);
+			pstmt.setInt(6,1); //available
 			
 	
 			return pstmt.executeUpdate();
@@ -182,4 +182,9 @@ String SQL = "INSERT INTO BBS VALUES (?, ?, ?, ?, ?, ?)";
 다섯개의 칼럼에 전부 데이터가 들어가도록 sql문을 작성
 **pstmt.setInt(1, getNext());**
 첫번째 칼럼에는 bbsID가 들어가므로 getNext()함수의 결과값을 인자로 넣어준다.
+return -1;
+INSERT문 같은 경우는 성공적으로 수행 했을때 0이상의 값을 반환한다.
 
+---
+
+#writeAction.jsp
