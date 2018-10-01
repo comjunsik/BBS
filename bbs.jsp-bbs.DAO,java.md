@@ -1,5 +1,5 @@
 # bbs.jsp
-
+게시판 메인 화면 디자인
 ```jsp
 <div class="container">
 	<div class="row">
@@ -61,3 +61,35 @@ href=write.jsp를 통해 버튼을 클릭했을때 write.jsp로 넘어가도록 
 
 # write.jsp
 게시판 글쓰기 부분
+
+```jsp
+<div class="container">
+      <div class="row">
+         <form method="post" action="index.jsp"><!-- action 바꿔야함 -->
+            <table class="table mx-2 mt-4" style="text-align: center; border: 1px solid #dddddd">
+               <thead>
+                  <tr>
+                     <th colspan="2" style="background-color: #eeeeee; text-align: center;">게시판 글쓰기 양식</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td><input type="text" class="form-control" placeholder="글 제목" name="" maxlength="50"></td>
+                  </tr>
+                  <tr>
+                     <td><textarea class="form-control" placeholder="글 내용" name="" maxlength="2048" style="height: 350px;"></textarea></td>
+                  </tr>
+               </tbody>
+            </table>
+            <input type="submit" class="btn btn-primary pull-right" value="글쓰기">
+         </form>
+      </div>
+   </div>
+```
+```jsp
+<input type="text" class="form-control" placeholder="글 제목" name="" maxlength="50"></td>
+```
+**class="form-control"**
+![form_control1](https://user-images.githubusercontent.com/41488792/46293804-71073500-c5cf-11e8-91f0-f5f7ba720adb.PNG)
+
+![form_control2](https://user-images.githubusercontent.com/41488792/46293922-9dbb4c80-c5cf-11e8-8b39-1c7b6bc28506.PNG)
