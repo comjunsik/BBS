@@ -11,7 +11,7 @@
 <body>
 <div class="container">
       <div class="row">
-         <form method="post" action="index.jsp"><!-- action 바꿔야함 -->
+         <form method="post" action="writeAction.jsp"><!-- action 바꿔야함 -->
             <table class="table mx-2 mt-4" style="text-align: center; border: 1px solid #dddddd">
                <thead>
                   <tr>

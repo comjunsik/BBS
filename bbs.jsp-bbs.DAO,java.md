@@ -65,7 +65,7 @@ href=write.jsp를 통해 버튼을 클릭했을때 write.jsp로 넘어가도록 
 ```jsp
 <div class="container">
       <div class="row">
-         <form method="post" action="index.jsp"><!-- action 바꿔야함 -->
+         <form method="post" action="writeAction.jsp"><!-- action 바꿔야함 -->
             <table class="table mx-2 mt-4" style="text-align: center; border: 1px solid #dddddd">
                <thead>
                   <tr>
@@ -93,3 +93,15 @@ href=write.jsp를 통해 버튼을 클릭했을때 write.jsp로 넘어가도록 
 ![form_control1](https://user-images.githubusercontent.com/41488792/46293804-71073500-c5cf-11e8-91f0-f5f7ba720adb.PNG)
 
 ![form_control2](https://user-images.githubusercontent.com/41488792/46293922-9dbb4c80-c5cf-11e8-8b39-1c7b6bc28506.PNG)
+
+**input** 을 통해 writeAction.jsp로 입력 내용이 넘어가도록 하게 한다
+**textArea** 상대적으로 긴 문자열을 입력할때 사용한다.
+
+```jsp
+<form method="post" action="index.jsp">
+<input type="submit" class="btn btn-primary pull-right" value="글쓰기">
+         </form>
+```
+>**type="submit"** 은 폼의 전송 기능을 담당한다.
+type="reset" 폼 작성 내용을 초기화하는데 사용한다.
+type="button" 흔히 자바스크립트를 이용한 기능 구현에 많이 사용한다.
