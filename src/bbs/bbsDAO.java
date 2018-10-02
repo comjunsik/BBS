@@ -12,10 +12,10 @@ public class bbsDAO {
 	
 	public bbsDAO() {
 		try {
-			String URL = "jdbc:mysql://localhost:3306/BBS2";//?useUnicode=true&characterEncoding=UTF-8";
+			String URL = "jdbc:mysql://localhost:3306/BBS?serverTimezone=Asia/Seoul&autoReconnect=true&useSSL=false";//?useUnicode=true&characterEncoding=UTF-8";
 			String ID = "root";
-			String Password = "rootpw";
-			Class.forName("com.mysql.jdbc.Driver");
+			String Password = "root";
+			Class.forName("com.mysql.cj.jdbc.Driver");
 			conn = DriverManager.getConnection(URL,ID,Password);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -54,11 +54,11 @@ public class bbsDAO {
 		String SQL = "INSERT INTO BBS VALUES (?, ?, ?, ?, ?, ?)";
 		try { 
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
-			pstmt.setInt(1, getNext());  //게시물 번호, bbsID
-			pstmt.setString(2, bbsTitle);  //게시물 제목
+			pstmt.setInt(1, getNext());
+			pstmt.setString(2, bbsTitle);
 			pstmt.setString(3, userID);
-			pstmt.setString(4, getDate());  //작성한 시간
-			pstmt.setString(5, bbsContent); //게시물 내용
+			pstmt.setString(4, getDate());
+			pstmt.setString(5, bbsContent);
 			pstmt.setInt(6,1);
 			
 	
