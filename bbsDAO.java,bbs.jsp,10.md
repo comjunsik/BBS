@@ -49,12 +49,16 @@ bbs.java 클래스의 ArrayList 인스턴스를 생성
 
 **pstmt.setInt(1, getNext() - (pageNumber -1)x10);**
 
-PreparedStatement.setInt() 넘겨 주는 인자 값이 int형일때 사용 만약 String 타입이면 setStrng()을 사용하면 된다.
+PreparedStatement.setInt() 넘겨 주는 인자 값이 int형일때 사용 만약 String 타입이면 setStrng()을 사용하면 된다.<br>
 .setInt(위치, 값)
 위치에는 해당하는 sql문의 '?'의 위치를 나타낸다.
 현재 사용하는 sql 문에서는 첫번째'?'에 '값'을 삽입하겠다는 뜻이다.
-getNext() - (pageNumber -1)x10
---> 이부분 이상함 다시....
+**getNext() - (pageNumber -1)x10**
+한페이지에 보여주는 게시물의 숫자가 10개만 보여지도록 하기위해서
+예를 들어 11개의 게시물이 있다면 1페이지에는 1번 게시물 하나만 존재하고
+2번 게시물에는 2~11까지의 게시물이 존재
+-->비효율적이니 바꿔주는게 좋을 듯
+
 
 **rs = pstmt.executeQuery();**
 SELECT 문을 사용했기 때문에 .executeQuery() 사용 반환 값은 ResultSet이다.
