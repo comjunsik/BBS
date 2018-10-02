@@ -87,7 +87,7 @@ http://bootstrapk.com/components/
 ![span2](https://user-images.githubusercontent.com/41488792/46372664-c2deb680-c6c6-11e8-9cab-043aaa39504f.PNG)
 <br>
 <br>
-&lt;div>는 **하나 이상의 요소(태그)**를 묶어서 스타일을 지정할 때 사용합니다.<br>
+&lt;div>는 **하나 이상의 요소&#40;태그)**를 묶어서 스타일을 지정할 때 사용합니다.<br>
 ![div1](https://user-images.githubusercontent.com/41488792/46372800-1cdf7c00-c6c7-11e8-8b23-0e1e34963953.PNG)
 ![div2](https://user-images.githubusercontent.com/41488792/46372825-2963d480-c6c7-11e8-8e25-53a0940c42f2.PNG)
 [출처:http://aboooks.tistory.com/63?category=516604]
