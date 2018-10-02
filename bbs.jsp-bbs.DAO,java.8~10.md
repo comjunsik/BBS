@@ -168,7 +168,7 @@ public int write(String bbsTitle, String userID, String bbsContent) {
 			pstmt.setString(3, userID); 
 			pstmt.setString(4, getDate()); //작성 시간
 			pstmt.setString(5, bbsContent); //작성 내용
-			pstmt.setInt(6,1); //available
+			pstmt.setInt(6,1);  //available=1 로 값을 주어 삭제되지 않은 게시물이라는 것을 표시
 			
 	
 			return pstmt.executeUpdate();
@@ -187,4 +187,57 @@ INSERT문 같은 경우는 성공적으로 수행 했을때 0이상의 값을 �
 
 ---
 
-#writeAction.jsp
+# writeAction.jsp
+게시글 작성 기능
+```jsp
+<%@ page import="bbs.bbsDAO" %>
+<%@ page import="java.io.PrintWriter" %>
+<% request.setCharacterEncoding("UtF-8"); %>
+<jsp:useBean id="bbs" class="bbs.bbs" scope="page" />
+<jsp:setProperty name="bbs" property="bbsTitle" />
+<jsp:setProperty name="bbs" property="bbsContent" />
+```
+자바빈즈를 이용해 bbs 인스턴스 생성
+**class="bbs.bbs"**
+bbs패키지의 bbs.java파일
+**name="bbs"**
+name은 id와 같게
+
+```jsp
+if(bbs.getBbsTitle() == null || bbs.getBbsContent() == null ){
+			PrintWriter script = response.getWriter();
+			script.println("<script>");
+			script.println("alert('입력 안 된 사항이 있습니다.')");
+			script.println("history.back()");
+			script.println("</script>");
+		} 
+		
+		else{
+		bbsDAO bbsDAO = new bbsDAO();
+		int result = bbsDAO.write(bbs.getBbsTitle(), userID, bbs.getBbsContent());
+		if (result == -1){
+			PrintWriter script = response.getWriter();
+			script.println("<script>");
+			script.println("alert('글쓰기 실패.')");
+			script.println("history.back()");
+			script.println("</script>");
+		}
+		else {
+			PrintWriter script = response.getWriter();
+			script.println("<script>");
+			script.println("location.href = 'bbs.jsp'");
+			script.println("</script>");
+		}
+	}
+```
+**if(bbs.getBbsTitle() == null || bbs.getBbsContent() == null )**
+만약 제목가 내용을 입력 안했을경우...
+```jsp
+else{
+	bbsDAO bbsDAO = new bbsDAO();
+		int result = bbsDAO.write(bbs.getBbsTitle(), userID, bbs.getBbsContent());
+```
+bbsDAO에 대한 객체 생성해 write()함수를 호출 한다.
+파라미터 값으로는 자바빈즈로 생성해준 인스턴스 bbs를 통해 bbs.java에 들어있는 정보를 가져와 넘겨준다.
+
+

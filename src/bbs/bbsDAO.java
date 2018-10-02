@@ -54,12 +54,12 @@ public class bbsDAO {
 		String SQL = "INSERT INTO BBS VALUES (?, ?, ?, ?, ?, ?)";
 		try { 
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
-			pstmt.setInt(1, getNext());
+			pstmt.setInt(1, getNext());  //bbsID 게시물 번호
 			pstmt.setString(2, bbsTitle);
 			pstmt.setString(3, userID);
 			pstmt.setString(4, getDate());
 			pstmt.setString(5, bbsContent);
-			pstmt.setInt(6,1);
+			pstmt.setInt(6,1);  //available=1로 값을 주어 삭제 되지 않은 게시물이라는 것을 표시
 			
 	
 			return pstmt.executeUpdate();
