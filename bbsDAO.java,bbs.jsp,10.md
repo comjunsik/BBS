@@ -45,7 +45,7 @@ LIMT 10을 통해 date를 10개씩 가져온다.
 bbs.java 클래스의 ArrayList 인스턴스를 생성
 
 ![statement](https://user-images.githubusercontent.com/41488792/46348219-382b9680-c689-11e8-9495-54224f257643.PNG)
-[출서:http://nyhooni.tistory.com/71]
+
 
 **pstmt.setInt(1, getNext() - (pageNumber -1)x10);**
 
