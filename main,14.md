@@ -83,6 +83,7 @@ http://bootstrapk.com/components/
 **span과 div**
 &lt;span>은 **문자열**을 원하는 부분만 선택해서 시각적 효과를 줄 수 있다.
 ![span1](https://user-images.githubusercontent.com/41488792/46372640-b2c6d700-c6c6-11e8-8c2c-22e9e92004fd.PNG)
+<br>
 ![span2](https://user-images.githubusercontent.com/41488792/46372664-c2deb680-c6c6-11e8-9cab-043aaa39504f.PNG)
 <br>
 <br>
