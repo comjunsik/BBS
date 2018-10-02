@@ -111,6 +111,7 @@ public class bbsDAO {
 		
 	}
 	
+	//글 내용 불러오는 함수
 	public bbs getBbs(int bbsID) {
 		String SQL = "SELECT * FROM BBS WHERE bbsID = ?";
 		try { 
