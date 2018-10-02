@@ -135,6 +135,7 @@ public class bbsDAO {
 		return null;
 	}
 	
+	//게시글 수정
 	public int update(int bbsID, String bbsTitle, String bbsContent) {
 		String SQL = "UPDATE BBS SET bbsTitle = ?, bbsContent = ?, WHERE bbsID = ?";
 		try { 
