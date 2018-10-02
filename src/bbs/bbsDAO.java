@@ -150,6 +150,7 @@ public class bbsDAO {
 		return -1;
 	}
 	
+	//게시글 삭제
 	public int delete(int bbsID) {
 		
 		String SQL = "UPDATE BBS SET bbsAvailable =0 WHERE bbsID = ?";
