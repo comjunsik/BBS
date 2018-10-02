@@ -183,8 +183,8 @@ list.size()를 통하여 ArrayList에 들어가있는 정보 만큼 반복하여
 ```jsp
 <td><%= list.get(i).getBbsDate().substring(0,11) + list.get(i).getBbsDate().substring(11,13) + "시" + list.get(i).getBbsDate().substring(14,16) + "분" %></td>
 ```
-날짜에 대한 정보는 .substring()메서드를 사용함으로써 보기 좋게 잘라서 보여준다.
-index 0_11이 년-월-일<br>
+날짜에 대한 정보는 .substring()메서드를 사용함으로써 보기 좋게 잘라서 보여준다.<br>
+>index 0_11이 년-월-일<br>
       11~_3이 시<br>
       14_16이 분<br>
 
