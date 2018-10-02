@@ -84,9 +84,11 @@ http://bootstrapk.com/components/
 &lt;span>은 **문자열**을 원하는 부분만 선택해서 시각적 효과를 줄 수 있다.
 ![span1](https://user-images.githubusercontent.com/41488792/46372640-b2c6d700-c6c6-11e8-8c2c-22e9e92004fd.PNG)
 ![span2](https://user-images.githubusercontent.com/41488792/46372664-c2deb680-c6c6-11e8-9cab-043aaa39504f.PNG)
-
+<br>
+<br>
 &lt;div>는 **하나 이상의 요소(태그)**를 묶어서 스타일을 지정할 때 사용합니다.<br>
 ![div1](https://user-images.githubusercontent.com/41488792/46372800-1cdf7c00-c6c7-11e8-8b23-0e1e34963953.PNG)
 ![div2](https://user-images.githubusercontent.com/41488792/46372825-2963d480-c6c7-11e8-8e25-53a0940c42f2.PNG)
+[출처:http://aboooks.tistory.com/63?category=516604]
 
 끗!
