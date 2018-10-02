@@ -58,7 +58,7 @@ stylesheet 참조 문구를 head안에 넣어준다
 class="carousel"은
 부트스트랩에서 제공하는 회전목마와 같이 순환하는 슬라이드 쇼(이미지 또는 텍스트 슬라이드)를 구성하는 컴포넌트.
 
-&lt;ol> 이란
+&lt;ol> 이란<br>
 ![ol](https://user-images.githubusercontent.com/41488792/46371349-13541500-c6c3-11e8-92bd-82f9b541d627.PNG)
 
 ```jsp
