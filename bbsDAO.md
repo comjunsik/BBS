@@ -16,15 +16,15 @@
 		return -1;
 	}
 ```
-**String SQL = "UPDATE BBS SET bbsTitle = ?, bbsContent = ? WHERE bbsID = ?";**
+**String SQL = "UPDATE BBS SET bbsTitle = ?, bbsContent = ? WHERE bbsID = ?";**<br>
 해당 bbsID의 제목과 내용을 update하라.
 ```java
 pstmt.setString(1, bbsTitle);
 pstmt.setString(2, bbsContent);
 pstmt.setInt(3,bbsID);
 ```
-setString과 setInt를 통하여 sql문장의 해당 "?"에 값을 삽입하여 준다.
-**pstmt.executeUpdate();**
+setString과 setInt를 통하여 sql문장의 해당 "?"에 값을 삽입하여 준다.<br>
+**pstmt.executeUpdate();**<br>
 삽입, 삭제, 수정의 경우 executeUpdate()를 해준다. 반환값은 실행된 레코드 수로 int형이다.
 예를 들어 두개의 레코드를 수정하게 되면 return 값은 int 2 이다.
 
@@ -43,7 +43,7 @@ bbs bbs = new bbsDAO().getBbs(bbsID);
 		script.println("</script>");
 	}
 ```
-**bbs bbs = new bbsDAO().getBbs(bbsID);**
+**bbs bbs = new bbsDAO().getBbs(bbsID);**<br>
 매개변수로 넘어온 bbsID를 통해 게시물에 대한 모든 정보를 bbs 인스턴스에 저장한다.
 
 ```jsp
@@ -74,7 +74,7 @@ bbs bbs = new bbsDAO().getBbs(bbsID);
 ```jsp
 <td><input type="text" class="form-control" placeholder="글제목" name="bbsTitle" maxlength="50" value="<%= bbs.getBbsTitle() %>"></td>
 ```
-**value="<%= bbs.getBbsTitle() %>"**
+**value="<%= bbs.getBbsTitle() %>"**<br>
 bbs.getBbsTitle()를 함으로써 자신이 이전에 썻던 게시물 제목을 보여준다.
 bbs.getBbsContent()도 마찬가지.
 
@@ -125,28 +125,29 @@ if (!userID.equals(bbs.getUserID())) {
 		if (result == -1){
         }
 ```
-권한이 있는 사용자(작성자)일 경우
-**request.getParameter("bbsTitle") == null || request.getParameter("bbsContent") == null**
+권한이 있는 사용자(작성자)일 경우<br>
+**request.getParameter("bbsTitle") == null || request.getParameter("bbsContent") == null**<br>
 을 통해 파라미터로 넘어온 bbsTitle와 bbsContent를 비교해 준다.
 
 **GET과 POST의 차이점**
 ![get post](https://user-images.githubusercontent.com/41488792/46366310-ae45f280-c6b5-11e8-8d71-03257515584c.PNG)
 [출처:https://blog.outsider.ne.kr/312]
 
-**엄청난 착각을 하고 있었다!!**
-update.jsp에서는 bbsID를 GET방식으로 전송하고
+**엄청난 착각을 하고 있었다!!**<br>>
+update.jsp에서는 bbsID를 GET방식으로 전송하고<br>
 bbsTitle과 bbsContent는 POST방식으로 전송을 한다.
 
 그래서 나는
 ```jsp
 int result = bbsDAO.update(bbsID, request.getParameter("bbsTitle"), request.getParameter("bbsContent"));
 ```
-이부분에서 POST로 전송 했으니 당연히 자바빈즈로 받아 bbs.java의 인스턴스로 bbs.getBbsTitle()로 해야 하는 줄 알았는데
-from을 이용해 POST로 전송한 데이터도 request.getParameter()를 통해 받을수 있던 것이다!
+이부분에서 POST로 전송 했으니 당연히 자바빈즈로 받아 bbs.java의 인스턴스로 bbs.getBbsTitle()로 해야 하는 줄 알았는데<br>
+from을 이용해 POST로 전송한 데이터도 request.getParameter()를 통해 받을수 있던 것이다!<br>
 그래서 update.jsp에서 수정한 제목부분과 내용부분을 매개변수로 받아 bbsDAO.update()메서드의 파라미터로 넘겨 주는 것.
 
 그럼 왜 자바빈즈를 사용하는 것일까ㅠ?
 ![default](https://user-images.githubusercontent.com/41488792/46367022-8e173300-c6b7-11e8-918b-05b9574ec9c4.PNG)
+
 [출처:http://egloos.zum.com/shoutrock/v/3570675]
 
 로직의 분리와, 재사용성 때문이다..
