@@ -84,9 +84,9 @@
 				<li data-target="#myCarousel" data-slide-to="1"></li>
 				<li data-target="#myCarousel" data-slide-to="2"></li>
 			</ol>
-			<div class="carousle-inner">
+			<div class="carousel-inner">
 				<div class="item active">
-					<img src="images/1.jpeg">
+					<img src="images/1.jpg">
 				</div>
 				<div class="item">
 					<img src="images/2.jpg">
@@ -96,10 +96,10 @@
 				</div>
 			</div>
 			<a class="left carousel-control" href="#myCarousel" data-slide="prev">
-				<span class="glyphicon glyphicon-chhevron-left"></span>
+				<span class="glyphicon glyphicon-chevron-left"></span>
 			</a>
 			<a class="right carousel-control" href="#myCarousel" data-slide="next">
-				<span class="glyphicon glyphicon-chhevron-right"></span>
+				<span class="glyphicon glyphicon-chevron-right"></span>
 			</a>
 		</div>
 	</div>
