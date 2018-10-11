@@ -3,6 +3,8 @@
 jsp와 js, css, bootstrap을 이용하여 간단한 게시판 기능을 구현해 보았습니다.
 회원가입, 로그인, 게지판 조회, 글쓰기, 수정, 삭제 등의 기능을 연습해 보았습니다.
 <br>
+<br>
+<br>
 **main화면**<br>
 ![bbs1](https://user-images.githubusercontent.com/41488792/46807024-0363c180-cda4-11e8-9c6d-8a94d86dfb40.PNG)
 
